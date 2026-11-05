@@ -1,0 +1,15 @@
+node_modules/
+www/
+site/
+android/
+ios/
+dist/
+.DS_Store
+.env
+.env.*
+*.p12
+*.mobileprovision
+*.keystore
+*.jks
+*.pem
+*.p8

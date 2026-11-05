@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b121b">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="APN Atlas VN - A Vietnamese mobile network APN library for Android and iPhone, with offline saved profiles and backups.">
+  <link rel="icon" href="./assets/icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="preload" href="./assets/fonts/be-vietnam-pro-vietnamese-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./assets/fonts/be-vietnam-pro-vietnamese-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="./styles.css">
+  <title>APN Atlas VN - Mobile network profiles</title>
+</head>
+<body>
+<a href="#mainContent" class="skip-link" id="skipLink">Chuyển đến nội dung chính</a>
+<svg class="icon-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<symbol id="i-library" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6.6" height="6.6" rx="1.6"/><rect x="13.4" y="4" width="6.6" height="6.6" rx="1.6"/><rect x="4" y="13.4" width="6.6" height="6.6" rx="1.6"/><rect x="13.4" y="13.4" width="6.6" height="6.6" rx="1.6"/></symbol>
+<symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.6l2.62 5.31 5.86.85-4.24 4.13 1 5.84L12 16.98l-5.24 2.75 1-5.84L3.52 9.76l5.86-.85z"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M12 11v5.4"/><path d="M12 7.9h.01"/></symbol>
+<symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.8v11"/><path d="M7.4 10.4 12 15l4.6-4.6"/><path d="M4.4 16.6v1.4a2.4 2.4 0 0 0 2.4 2.4h10.4a2.4 2.4 0 0 0 2.4-2.4v-1.4"/></symbol>
+<symbol id="i-help" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M9.7 9.4a2.4 2.4 0 1 1 3.3 2.3c-.7.3-1 .9-1 1.6v.4"/><path d="M12 17.2h.01"/></symbol>
+<symbol id="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M9.2 7H17v7.8"/></symbol>
+<symbol id="i-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.8" cy="10.8" r="6.6"/><path d="m16 16 4.2 4.2"/></symbol>
+<symbol id="i-android" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.6 15.6a7.4 7.4 0 0 1 14.8 0"/><path d="M3.6 15.6h16.8"/><path d="m7.6 8.9-1.9-2.7"/><path d="m16.4 8.9 1.9-2.7"/><circle cx="9.2" cy="12.3" r="1" fill="currentColor" stroke="none"/><circle cx="14.8" cy="12.3" r="1" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-apple" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 7.6c.7-.7 1.8-1.2 2.9-1.2 1.1 0 2.1.4 2.8 1.1 1.4 1.3 1.7 3.6 1.1 5.9-.3 1.1-.8 2.2-1.5 3.2-.6.9-1.3 1.8-2.1 2.4-.7.5-1.4.8-2.1.8-.6 0-1.1-.2-1.6-.4-.5-.2-.9-.3-1.4-.3-.5 0-1 .1-1.5.3-.5.2-1 .4-1.6.4-.7 0-1.4-.3-2.1-.8-.8-.6-1.5-1.5-2.1-2.4-.7-1-1.2-2.1-1.5-3.2-.6-2.3-.3-4.6 1.1-5.9.7-.7 1.7-1.1 2.8-1.1 1.1 0 2.2.5 2.9 1.2z"/><path d="M12.1 7.4c-.1-1.5.6-2.9 1.8-3.6.4-.2.9-.4 1.4-.4-.1 1.5-.8 2.8-1.9 3.5-.4.3-.8.4-1.3.5z"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6 18 18"/><path d="m18 6-12 12"/></symbol>
+<symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8.6" y="8.6" width="11.4" height="11.4" rx="2.4"/><path d="M15.6 8.6V6.4A2.4 2.4 0 0 0 13.2 4H6.4A2.4 2.4 0 0 0 4 6.4v6.8a2.4 2.4 0 0 0 2.4 2.4h2.2"/></symbol>
+<symbol id="i-warning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.6 3.8 19h16.4z"/><path d="M12 9.9v4.3"/><path d="M12 16.9h.01"/></symbol>
+<symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13.8 5H19v5.2"/><path d="m19 5-7.4 7.4"/><path d="M18 13.6v3.6a2.8 2.8 0 0 1-2.8 2.8H6.8A2.8 2.8 0 0 1 4 17.2V8.8A2.8 2.8 0 0 1 6.8 6h3.6"/></symbol>
+<symbol id="i-edit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16.8 3.7a2.1 2.1 0 0 1 3 3L8 18.5l-4 1 1-4z"/><path d="m14.8 5.7 3 3"/></symbol>
+<symbol id="i-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 7h15"/><path d="M9.5 7V5.2A1.2 1.2 0 0 1 10.7 4h2.6a1.2 1.2 0 0 1 1.2 1.2V7"/><path d="m6.5 7 .9 11.4a2 2 0 0 0 2 1.6h5.2a2 2 0 0 0 2-1.6L17.5 7"/><path d="M10.5 11v5M13.5 11v5"/></symbol>
+<symbol id="i-diamond" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 3.4 20.6 12 12 20.6 3.4 12z"/></symbol>
+<symbol id="i-sparkle" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2.6c.97 5.1 4.3 8.43 9.4 9.4-5.1.97-8.43 4.3-9.4 9.4-.97-5.1-4.3-8.43-9.4-9.4 5.1-.97 8.43-4.3 9.4-9.4z"/></symbol>
+<symbol id="i-vn-flag" viewBox="0 0 24 16"><rect width="24" height="16" rx="2.5" fill="#da251d"/><polygon points="12,3.2 13.18,6.83 17,6.83 13.91,9.08 15.09,12.71 12,10.46 8.91,12.71 10.09,9.08 7,6.83 10.82,6.83" fill="#ffcd00"/></symbol>
+<symbol id="i-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9.6 5.6 6.4 6.4-6.4 6.4"/></symbol>
+<symbol id="i-app-logo" viewBox="0 0 512 512"><rect width="512" height="512" rx="128" fill="#c8f48b"/><g transform="rotate(-3 256 256)"><path d="M136 116C170 82 210 66 256 66C302 66 342 82 376 116" fill="none" stroke="#10211a" stroke-width="32" stroke-linecap="round" stroke-opacity="0.4"/><path d="M174 154C198 136 225 125 256 125C287 125 314 136 338 154" fill="none" stroke="#10211a" stroke-width="32" stroke-linecap="round"/><path d="M256 178L138 424H204L230 358H282L308 424H374L256 178Z" fill="#10211a"/><polygon points="256,238 234,302 278,302" fill="#c8f48b"/><circle cx="256" cy="198" r="16" fill="#c8f48b"/></g></symbol>
+</svg>
+<div class="app-shell">
+  <aside class="sidebar">
+    <a class="brand" href="#library" id="brandHome" aria-label="Trang chủ APN Atlas">
+      <span class="brand-icon"><svg class="icon icon-brand" aria-hidden="true" focusable="false"><use href="#i-app-logo"></use></svg></span>
+      <span class="brand-name">APN <strong>ATLAS</strong><small>VIETNAM EDITION</small></span>
+    </a>
+    <div class="menu-group">
+      <span class="menu-label">WORKSPACE</span>
+      <button class="nav-item active" type="button" data-view="library" aria-current="page" aria-label="Thư viện APN"><span class="nav-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-library"></use></svg></span> <span>Th&#432; vi&#7879;n APN</span></button>
+      <button class="nav-item" type="button" data-view="saved" aria-label="Đã lưu"><span class="nav-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-bookmark"></use></svg></span> <span>&#272;&#227; l&#432;u</span> <span class="nav-count" id="savedCountSide">0</span></button>
+      <button class="nav-item" type="button" data-view="custom" aria-label="Cấu hình riêng"><span class="nav-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-edit"></use></svg></span> <span>C&#7845;u hình ri&#234;ng</span></button>
+    </div>
+    <div class="menu-group secondary">
+      <span class="menu-label">TOOLS & SUPPORT</span>
+      <button class="nav-item" type="button" data-view="guide" aria-label="Hướng dẫn"><span class="nav-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-info"></use></svg></span> <span>H&#432;&#7899;ng d&#7851;n</span></button>
+      <button class="nav-item" type="button" id="backupNav" aria-label="Sao lưu dữ liệu"><span class="nav-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-download"></use></svg></span> <span>Sao l&#432;u d&#7919; li&#7879;u</span></button>
+    </div>
+    <div class="sidebar-bottom">
+      <div class="online-indicator"><span></span> <b>OFFLINE READY</b></div>
+      <p>Th&#244;ng s&#7889; APN &#273;&#432;&#7907;c t&#7893;ng h&#7907;p t&#7915; ngu&#7891;n c&#244;ng khai. Ch&#7881; thay &#273;&#7893;i khi c&#7847;n.</p>
+      <small>v1.0 <span class="dot-sep">&#183;</span> 05.11.2026</small>
+    </div>
+  </aside>
+
+  <div class="main-wrap">
+    <header class="topbar">
+      <div class="mobile-brand"><span class="mobile-mark"><svg class="icon icon-brand-mob" aria-hidden="true" focusable="false"><use href="#i-app-logo"></use></svg></span><strong>APN ATLAS</strong><span class="mobile-vn">VN</span></div>
+      <div class="topbar-left"><span class="status-dot"></span><span>VIETNAM NETWORK DIRECTORY</span></div>
+      <div class="topbar-actions">
+        <span class="offline-pill"><span></span>Offline sẵn sàng</span>
+        <div class="locale-pill"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-vn-flag"></use></svg> <span>Vi&#7879;t Nam</span></div>
+        <button type="button" class="icon-btn" id="headerHelp" aria-label="Trợ giúp"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-help"></use></svg></button>
+        <button type="button" class="primary-btn small" id="newProfileHeader"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-plus"></use></svg><span> T&#7841;o c&#7845;u h&#236;nh</span></button>
+      </div>
+    </header>
+
+    <main class="content" id="mainContent" tabindex="-1">
+      <section id="libraryView">
+        <div class="hero">
+          <div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div><div class="radar-core"><div class="radar-ring"></div></div><div class="radar-point p1"></div><div class="radar-point p2"></div><div class="radar-point p3"></div></div>
+          <div class="hero-text">
+            <span class="eyebrow"><span class="mini-glow"></span> MOBILE NETWORK TOOLKIT <span class="eyebrow-line"></span> 2026</span>
+            <h1><span class="hm-line"><span class="hm-in" style="--i:0">Một thư viện.</span></span><span class="hm-line"><span class="hm-in" style="--i:1"><em>Mọi kết nối.</em></span></span></h1>
+            <p>Tra c&#7913;u, l&#432;u v&#224; qu&#7843;n l&#253; c&#7845;u h&#236;nh APN c&#7911;a c&#225;c nh&#224; m&#7841;ng Vi&#7879;t Nam tr&#234;n Android v&#224; iPhone.</p>
+            <div class="hero-buttons"><button class="primary-btn" type="button" id="exploreBtn">Kh&#225;m ph&#225; th&#432; vi&#7879;n <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-up-right"></use></svg></button></div>
+          </div>
+        </div>
+
+        <div class="stats-row" id="statsRow">
+          <div class="stat"><span class="stat-num" id="statTotal">12</span><span class="stat-label">Nh&#224; m&#7841;ng</span></div>
+          <div class="stat"><span class="stat-num">04</span><span class="stat-label">M&#7841;ng h&#7841; t&#7847;ng</span></div>
+          <div class="stat"><span class="stat-num">06</span><span class="stat-label">MVNO ho&#7841;t &#273;&#7897;ng</span></div>
+          <div class="stat"><span class="stat-num" id="statSaved">00</span><span class="stat-label">&#272;&#227; l&#432;u</span></div>
+        </div>
+
+        <div class="section-head" id="catalogAnchor"><div><div class="section-kicker">01 / CARRIER DATABASE</div><h2 id="libraryHeading">Th&#432; vi&#7879;n nh&#224; m&#7841;ng <span class="muted-count" id="visibleCount">12</span></h2><p id="librarySubheading">C&#7845;u h&#236;nh APN c&#243; ngu&#7891;n, minh b&#7841;ch tr&#7841;ng th&#225;i x&#225;c minh.</p></div><div class="platform-switch" role="group" aria-label="Chọn nền tảng"><button type="button" class="platform-tab active" data-platform="android" aria-pressed="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-android"></use></svg> Android</button><button type="button" class="platform-tab" data-platform="ios" aria-pressed="false"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-apple"></use></svg> iPhone</button></div></div>
+        <div class="custom-actions" id="customActions" hidden><button class="primary-btn" type="button" id="customCreate"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-plus"></use></svg> Tạo cấu hình</button></div>
+        <div class="toolbar">
+          <label class="search-wrap"><span class="search-glyph"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-search"></use></svg></span><input type="search" id="search" placeholder="T&#236;m nh&#224; m&#7841;ng, APN, &#273;&#7847;u s&#7889;..." aria-label="Tìm nhà mạng, APN, đầu số" autocomplete="off"><kbd>/</kbd></label>
+          <div class="platform-switch toolbar-platform" role="group" aria-label="Chọn nền tảng"><button type="button" class="platform-tab active" data-platform="android" aria-pressed="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-android"></use></svg> Android</button><button type="button" class="platform-tab" data-platform="ios" aria-pressed="false"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-apple"></use></svg> iPhone</button></div>
+          <div class="chip-row" role="group" aria-label="Lọc nhà mạng"><button class="chip active" type="button" data-kind="all">T&#7845;t c&#7843;</button><button class="chip" type="button" data-kind="network">M&#7841;ng v&#7853;t l&#253;</button><button class="chip" type="button" data-kind="mvno">M&#7841;ng &#7843;o</button><button class="chip" type="button" data-kind="other">Kh&#225;c</button><button class="chip" type="button" data-kind="custom">C&#7911;a t&#244;i</button></div>
+        </div>
+        <div class="carrier-grid" id="carrierGrid"></div>
+        <div class="empty-state" id="emptyState" hidden><span class="empty-glyph"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-search"></use></svg></span><h3>Kh&#244;ng t&#236;m th&#7845;y c&#7845;u h&#236;nh</h3><p>Th&#7917; t&#236;m b&#7857;ng t&#234;n nh&#224; m&#7841;ng ho&#7863;c t&#7841;o c&#7845;u h&#236;nh ri&#234;ng.</p><button class="outline-btn" id="emptyCreate" type="button"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-plus"></use></svg> T&#7841;o c&#7845;u h&#236;nh</button></div>
+        <div class="library-footer"><span>DATA REVISION 05 NOV 2026</span><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-diamond"></use></svg><span>ALL 4 MNOs + 6 ACTIVE MVNOs</span><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-diamond"></use></svg><span>LOCAL-FIRST</span></div>
+      </section>
+
+      <section id="guideView" hidden>
+        <div class="plain-hero"><span class="section-kicker">02 / GET CONNECTED</span><h1>Thi&#7871;t l&#7853;p APN.<br><em>&#272;&#250;ng c&#225;ch.</em></h1><p>Ch&#7885;n n&#7873;n t&#7843;ng, sao ch&#233;p gi&#225; tr&#7883; APN t&#7915; th&#432; vi&#7879;n v&#224; nh&#7853;p v&#224;o C&#224;i &#273;&#7863;t c&#7911;a m&#225;y.</p></div>
+        <div class="guide-switch" role="group" aria-label="Chọn nền tảng"><button type="button" class="platform-tab active" data-platform="android" aria-pressed="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-android"></use></svg> Android</button><button type="button" class="platform-tab" data-platform="ios" aria-pressed="false"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-apple"></use></svg> iPhone / iPad</button></div>
+        <div class="steps-grid" id="guideSteps"></div>
+        <div class="warning-card"><strong><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-warning"></use></svg> L&#432;u &#253; v&#7873; quy&#7873;n h&#7879; th&#7889;ng</strong><p>&#7912;ng d&#7909;ng kh&#244;ng t&#7921; &#253; s&#7917;a APN c&#7911;a thi&#7871;t b&#7883;. Tr&#234;n Android, quy&#7873;n WRITE_APN_SETTINGS kh&#244;ng d&#224;nh cho app th&#244;ng th&#432;&#7901;ng. Tr&#234;n iOS, nh&#224; m&#7841;ng c&#243; th&#7875; kh&#243;a m&#7909;c s&#7917;a APN. N&#234;n sao l&#432;u c&#7845;u h&#236;nh c&#361; tr&#432;&#7899;c khi thay &#273;&#7893;i.</p></div>
+        <div class="source-section"><h3>Ngu&#7891;n tham kh&#7843;o</h3><a href="https://developer.android.com/reference/android/Manifest.permission#WRITE_APN_SETTINGS" target="_blank" rel="noopener noreferrer">Android Developers &#8212; APN permission <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg></a><a href="https://support.apple.com/en-us/102483" target="_blank" rel="noopener noreferrer">Apple Support &#8212; APN settings <svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-external"></use></svg></a></div>
+      </section>
+    </main>
+  </div>
+  <aside class="detail-column" id="detailColumn" aria-label="Chi tiết nhà mạng" aria-live="polite"></aside>
+</div>
+
+<nav class="mobile-nav" aria-label="Điều hướng di động">
+ <button type="button" class="mob-nav active" data-view="library" aria-current="page"><span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-library"></use></svg></span><small>Th&#432; vi&#7879;n</small></button>
+ <button type="button" class="mob-nav" data-view="saved"><span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-bookmark"></use></svg></span><small>&#272;&#227; l&#432;u</small></button>
+ <button type="button" class="mob-nav add-mob" id="mobileAdd" aria-label="Tạo cấu hình mới"><span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-plus"></use></svg></span></button>
+ <button type="button" class="mob-nav" data-view="custom"><span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-edit"></use></svg></span><small>C&#7911;a t&#244;i</small></button>
+ <button type="button" class="mob-nav" data-view="guide"><span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-info"></use></svg></span><small>H&#432;&#7899;ng d&#7851;n</small></button>
+</nav>
+
+<div class="scrim" id="detailScrim" hidden><div class="detail-pane" role="dialog" aria-modal="true" aria-labelledby="detailTitle" tabindex="-1"><div id="detailContent"></div></div></div>
+<div class="scrim editor-scrim" id="editorScrim" hidden><div class="editor-pane" role="dialog" aria-modal="true" aria-labelledby="editorTitle"><div class="dialog-top"><span class="section-kicker">CUSTOM PROFILE</span><button type="button" class="close-btn" id="editorClose" aria-label="Đóng"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-close"></use></svg></button></div><h2 id="editorTitle">T&#7841;o c&#7845;u h&#236;nh APN</h2><p class="dialog-intro">L&#432;u th&#244;ng s&#7889; ri&#234;ng tr&#234;n thi&#7871;t b&#7883; n&#224;y.</p><form id="profileForm"><input id="editId" type="hidden"><div class="form-grid"><label class="form-field"><span>T&#234;n c&#7845;u h&#236;nh *</span><input id="editName" maxlength="80" required placeholder="Example: My SIM"></label><label class="form-field"><span>APN *</span><input id="editApn" maxlength="128" required placeholder="example.internet" autocapitalize="off" spellcheck="false"></label><label class="form-field"><span>Username</span><input id="editUsername" maxlength="128" autocomplete="off"></label><label class="form-field"><span>Password</span><input id="editPassword" maxlength="128" autocomplete="off"></label><label class="form-field"><span>APN type</span><input id="editType" value="default,supl" maxlength="80"></label><label class="form-field"><span>Protocol</span><select id="editProtocol"><option>IPv4/IPv6</option><option>IPv4</option><option>IPv6</option></select></label></div><details class="advanced-fields"><summary>Th&#244;ng s&#7889; n&#226;ng cao <span><svg class="icon icon--sm" aria-hidden="true" focusable="false"><use href="#i-chevron-right"></use></svg></span></summary><div class="form-grid advanced-grid">
+<label class="form-field"><span>Authentication</span><select id="editAuth"><option>None</option><option>PAP</option><option>CHAP</option><option>PAP or CHAP</option></select></label>
+<label class="form-field"><span>Bearer / S&#243;ng m&#7841;ng</span><select id="editBearer"><option>Unspecified</option><option>LTE</option><option>HSPAP</option><option>HSPA</option><option>UMTS</option><option>EDGE</option></select></label>
+<label class="form-field"><span>Roaming protocol</span><select id="editRoamingProtocol"><option>IPv4/IPv6</option><option>IPv4</option><option>IPv6</option></select></label>
+<label class="form-field"><span>Server</span><input id="editServer" maxlength="160"></label>
+<label class="form-field"><span>Proxy</span><input id="editProxy" maxlength="160"></label>
+<label class="form-field"><span>Port</span><input id="editPort" maxlength="8" inputmode="numeric"></label>
+<label class="form-field"><span>MMSC</span><input id="editMMSC" maxlength="300" autocapitalize="off"></label>
+<label class="form-field"><span>MMS proxy</span><input id="editMMSProxy" maxlength="160"></label>
+<label class="form-field"><span>MMS port</span><input id="editMMSPort" maxlength="8" inputmode="numeric"></label>
+<label class="form-field"><span>MCC (theo SIM)</span><input id="editMcc" maxlength="3" inputmode="numeric" placeholder="452"></label>
+<label class="form-field"><span>MNC (theo SIM)</span><input id="editMnc" maxlength="3" inputmode="numeric" placeholder="02 / 08"></label>
+<label class="form-field"><span>MVNO type</span><select id="editMvnoType"><option>None</option><option>SPN</option><option>IMSI</option><option>GID</option><option>ICCID</option></select></label>
+<label class="form-field"><span>MVNO match value</span><input id="editMvnoMatchData" maxlength="160"></label>
+<label class="form-field"><span>iPhone LTE APN (optional)</span><input id="editIosLte" maxlength="128"></label>
+<label class="form-field"><span>iPhone Hotspot APN</span><input id="editIosHotspot" maxlength="128"></label>
+</div><p class="advanced-note">Ch&#7881; nh&#7853;p MCC/MNC, MVNO, Proxy v&#224; MMS n&#7871;u nh&#224; m&#7841;ng c&#243; h&#432;&#7899;ng d&#7851;n ri&#234;ng.</p></details><label class="form-field full"><span>Ghi ch&#250;</span><textarea id="editNote" rows="3" maxlength="500" placeholder="SIM, nh&#224; m&#7841;ng, ng&#224;y x&#225;c minh..."></textarea></label><p class="form-error" id="formError" role="alert" hidden></p><div class="dialog-actions"><button class="outline-btn" type="button" id="editorCancel">H&#7911;y</button><button class="primary-btn" type="submit">L&#432;u c&#7845;u h&#236;nh <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-up-right"></use></svg></button></div></form></div></div>
+<div class="scrim backup-scrim" id="backupScrim" hidden><div class="editor-pane backup-pane" role="dialog" aria-modal="true" aria-labelledby="backupTitle"><div class="dialog-top"><span class="section-kicker">DATA PORTABILITY</span><button type="button" class="close-btn" id="backupClose" aria-label="Đóng"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-close"></use></svg></button></div><h2 id="backupTitle">D&#7919; li&#7879;u c&#7911;a b&#7841;n.</h2><p class="dialog-intro">Th&#432; vi&#7879;n g&#7889;c &#273;&#432;&#7907;c t&#237;ch h&#7907;p. C&#7845;u h&#236;nh c&#7911;a b&#7841;n ch&#7881; l&#432;u tr&#234;n thi&#7871;t b&#7883; hi&#7879;n t&#7841;i, kh&#244;ng &#273;&#7891;ng b&#7897; l&#234;n m&#225;y ch&#7911;.</p><div class="backup-action"><div><strong>Xu&#7845;t sao l&#432;u JSON</strong><p>&#272;&#227; l&#432;u + c&#7845;u h&#236;nh ri&#234;ng</p></div><button type="button" class="outline-btn" id="exportBackup">Xu&#7845;t <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-up-right"></use></svg></button></div><div class="backup-action"><div><strong>Nh&#7853;p sao l&#432;u</strong><p>Kh&#244;i ph&#7909;c t&#7915; t&#7879;p JSON &#273;&#227; xu&#7845;t</p></div><button type="button" class="outline-btn" id="importBackup">Ch&#7885;n t&#7879;p</button></div><p class="backup-tip">L&#432;u &#253;: Nh&#7853;p d&#7919; li&#7879;u s&#7869; thay th&#7871; c&#225;c c&#7845;u h&#236;nh t&#7921; t&#7841;o hi&#7879;n c&#243;.</p></div></div>
+<input type="file" accept="application/json,.json" id="fileInput" hidden>
+<div id="a11yStatus" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+<div class="toast" id="toast"></div>
+<script type="module" src="./src/app.mjs"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "APN Atlas VN — Thư viện APN Việt Nam",
+  "short_name": "APN Atlas",
+  "description": "Cấu hình APN Việt Nam cho Android và iPhone",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b121b",
+  "theme_color": "#0b121b",
+  "icons": [
+    {
+      "src": "./assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

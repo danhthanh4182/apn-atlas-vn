@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="128" fill="#c8f48b"/>
+  <g transform="rotate(-3 256 256)">
+    <!-- Massive Monogram A -->
+    <path d="M210 102L98 424H172L194 352H260L282 424H356L236 102H210ZM223 182L246 292H200L223 182Z" fill="#10211a"/>
+    <!-- Scaled up side arcs -->
+    <path d="M296 152C328 182 346 224 346 272" fill="none" stroke="#10211a" stroke-width="32" stroke-linecap="round"/>
+    <path d="M350 118C392 160 416 216 416 280" fill="none" stroke="#10211a" stroke-width="32" stroke-linecap="round" stroke-opacity="0.45"/>
+  </g>
+</svg>

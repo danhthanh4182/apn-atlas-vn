@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="128" fill="#c8f48b"/>
+  <g transform="rotate(-3 256 256)">
+    <!-- Extra-bold high-impact waves -->
+    <path d="M128 124C166 88 208 70 256 70C304 70 346 88 384 124" fill="none" stroke="#10211a" stroke-width="36" stroke-linecap="round" stroke-opacity="0.45"/>
+    <path d="M168 164C192 144 222 132 256 132C290 132 320 144 344 164" fill="none" stroke="#10211a" stroke-width="36" stroke-linecap="round"/>
+    <!-- Bold Solid Tower A -->
+    <path d="M256 182L130 424H204L230 352H282L308 424H382L256 182Z" fill="#10211a"/>
+    <polygon points="256,242 232,306 280,306" fill="#c8f48b"/>
+    <circle cx="256" cy="202" r="17" fill="#c8f48b"/>
+  </g>
+</svg>

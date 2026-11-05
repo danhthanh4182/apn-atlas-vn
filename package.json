@@ -1,0 +1,28 @@
+{
+  "name": "apn-atlas-vn",
+  "private": true,
+  "version": "1.1.0",
+  "type": "module",
+  "description": "Offline-first Vietnamese APN profiles for Android and iOS",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "build:site": "node scripts/prepare-site.mjs",
+    "build:web": "node scripts/prepare-web.mjs",
+    "native:android": "npm run build:web && npx cap add android && npx cap sync android",
+    "native:ios": "npm run build:web && npx cap add ios && npx cap sync ios",
+    "apk": "npm run build:web && npx cap sync android && cd android && ./gradlew assembleDebug",
+    "assets:android": "npx capacitor-assets generate --android --iconBackgroundColor '#0b121b' --splashBackgroundColor '#0b121b'",
+    "assets:ios": "npx capacitor-assets generate --ios --iconBackgroundColor '#0b121b' --splashBackgroundColor '#0b121b'",
+    "assets:carriers": "node scripts/fetch-carrier-logos.mjs"
+  },
+  "dependencies": {
+    "@capacitor/core": "8.6.0",
+    "@capacitor/android": "8.6.0",
+    "@capacitor/ios": "8.6.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "8.6.0",
+    "@capacitor/assets": "3.0.5",
+    "sharp": "^0.34.4"
+  }
+}

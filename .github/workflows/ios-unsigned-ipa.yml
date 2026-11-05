@@ -1,0 +1,50 @@
+name: iOS unsigned IPA (for external signing)
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  unsigned-ipa:
+    runs-on: macos-26
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Fetch and optimize carrier logos
+        run: npm run assets:carriers
+      - name: Verify catalog
+        run: npm test
+      - name: Generate iOS project
+        run: npm run build:web && npx cap add ios && npx cap sync ios
+      - name: Generate iOS icons
+        run: npm run assets:ios
+      - name: Compile for iPhone without signing
+        run: >
+          xcodebuild -project ios/App/App.xcodeproj -scheme App
+          -configuration Release -sdk iphoneos
+          -destination 'generic/platform=iOS'
+          -derivedDataPath dist/ios-device CODE_SIGNING_ALLOWED=NO build
+      - name: Package unsigned IPA
+        shell: bash
+        run: |
+          set -euo pipefail
+          APP_DIR="dist/ios-device/Build/Products/Release-iphoneos/App.app"
+          test -f "$APP_DIR/Info.plist"
+          mkdir -p dist/unsigned-ipa/Payload
+          cp -R "$APP_DIR" dist/unsigned-ipa/Payload/App.app
+          (cd dist/unsigned-ipa && /usr/bin/zip -q -r ../APN-Atlas-VN-unsigned.ipa Payload)
+          unzip -t dist/APN-Atlas-VN-unsigned.ipa | tail -n 1
+          unzip -Z -1 dist/APN-Atlas-VN-unsigned.ipa | grep -q '^Payload/App.app/Info.plist$'
+      - name: Upload unsigned IPA
+        uses: actions/upload-artifact@v4
+        with:
+          name: apn-atlas-vn-ios-unsigned-ipa
+          path: dist/APN-Atlas-VN-unsigned.ipa
+          if-no-files-found: error
+          retention-days: 30

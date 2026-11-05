@@ -1,0 +1,38 @@
+name: iOS simulator build
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  simulator:
+    runs-on: macos-26
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Fetch and optimize carrier logos
+        run: npm run assets:carriers
+      - name: Test catalog
+        run: npm test
+      - name: Generate iOS project
+        run: npm run build:web && npx cap add ios && npx cap sync ios
+      - name: Generate iOS icon and splash
+        run: npm run assets:ios
+      - name: Build unsigned simulator app
+        run: >
+          xcodebuild -project ios/App/App.xcodeproj -scheme App
+          -configuration Debug -sdk iphonesimulator
+          -destination 'generic/platform=iOS Simulator'
+          -derivedDataPath dist/ios-simulator CODE_SIGNING_ALLOWED=NO build
+      - name: Upload iOS simulator app
+        uses: actions/upload-artifact@v4
+        with:
+          name: apn-atlas-vn-ios-simulator
+          path: dist/ios-simulator/Build/Products/Debug-iphonesimulator/App.app
+          if-no-files-found: error

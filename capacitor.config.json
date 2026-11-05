@@ -1,0 +1,12 @@
+{
+  "appId": "dev.danhthanh.apnatlas",
+  "appName": "APN Atlas VN",
+  "webDir": "www",
+  "android": {
+    "allowMixedContent": false,
+    "backgroundColor": "#0b121b"
+  },
+  "ios": {
+    "contentInset": "always"
+  }
+}
